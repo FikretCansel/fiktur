@@ -33,7 +33,11 @@ class _RootPageState extends State<RootPage> {
   }
 
   Widget getBody(PageController controller) {
-    List<Widget> pages = [ OrdersPage(),PacketsPage(), ProfilePage()];
+    List<Widget> pages = [
+      OrdersPage()
+      ,PacketsPage(),
+      ProfilePage()
+    ];
 
     return PageView(
           scrollDirection: Axis.horizontal,

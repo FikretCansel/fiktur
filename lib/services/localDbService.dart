@@ -1,12 +1,9 @@
 import 'package:fiktur/models/auth_response.dart';
 import 'package:fiktur/models/profile.dart';
-import 'package:fiktur/models/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
 class LocalDbService{
-  
-
   static void saveUserInfo(AuthResponse authResponse) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     
@@ -28,6 +25,10 @@ class LocalDbService{
   Future<String?> getExpiration() async{
     SharedPreferences prefs= await SharedPreferences.getInstance();
     return prefs.getString("expiration");
+  }
+  Future<int?> getUserId() async{
+    SharedPreferences prefs= await SharedPreferences.getInstance();
+    return prefs.getInt("userId");
   }
   // Future<String?> firstName() async{
   //   SharedPreferences prefs= await SharedPreferences.getInstance();

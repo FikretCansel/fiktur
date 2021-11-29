@@ -41,7 +41,7 @@ class _HomePage extends State {
           child: Text('Profil Sayfası'),
         ),
         Center(
-          child: Text('Siparişlerim'),
+          child: Text('Siparişlerimmm'),
         )
       ],
     );

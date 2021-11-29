@@ -8,4 +8,10 @@ class Result implements IResult{
     this.success=success;
     this.message=message;
   }
+
+  static Result dataResultFromJson(Map<String, dynamic> json) {
+    return Result(
+        json['success'],json['message']
+    );
+  }
 }

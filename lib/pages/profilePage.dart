@@ -12,15 +12,21 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-
+  LocalDbService localDbService = LocalDbService();
   Profile profile=Profile("", "", "");
   @override
   void initState() {
     super.initState();
     LocalDbService.getProfile().then((value) => {
-      profile=value
+      setState(() {
+        if(value!=null){
+          profile=value;
+        }
+
+      })
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   logOut() {
+    localDbService.logOut();
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomePage(title: '')),);
   }
 }

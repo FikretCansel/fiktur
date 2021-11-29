@@ -1,6 +1,7 @@
 import 'package:fiktur/models/register.dart';
 import 'package:fiktur/pages/root_page.dart';
 import 'package:fiktur/services/authService.dart';
+import 'package:fiktur/services/localDbService.dart';
 //import 'package:fiktur/services/localDbService.dart';
 import 'package:fiktur/validation/register_validation.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _SignUpPageState extends State<SignUpPage> with RegisterValidationMixin {
   final _formKey=GlobalKey<FormState>();
   Register registerForm=Register("", "", "", "");
   AuthService authService=AuthService();
-
+  LocalDbService localDbService = LocalDbService();
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -113,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> with RegisterValidationMixin {
       _formKey.currentState!.save();
       authService.register(registerForm).then((value) {
         if(value.success){
-          //LocalDbService.saveUserInfo(value.data);
+          LocalDbService.saveUserInfo(value.data);
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => RootPage()),);
         }else {
           print(value.message);

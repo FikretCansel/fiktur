@@ -70,8 +70,6 @@ class _LoginPageState extends State<LoginPage> with LoginValidationMixin {
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
                   filled: true)),
-
-
         ],
       ),
     );
@@ -285,7 +283,6 @@ class _LoginPageState extends State<LoginPage> with LoginValidationMixin {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
-
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -313,7 +310,5 @@ class _LoginPageState extends State<LoginPage> with LoginValidationMixin {
             ],
           ),
         ));
-
   }
-
 }
