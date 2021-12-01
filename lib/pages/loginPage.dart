@@ -236,7 +236,7 @@ class _LoginPageState extends State<LoginPage> with LoginValidationMixin {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          text: 'd',
+          text: '',
           // style: GoogleFonts.portLligatSans(
           //   textStyle: Theme.of(context).textTheme.display1,
           //   fontSize: 30,
@@ -245,11 +245,11 @@ class _LoginPageState extends State<LoginPage> with LoginValidationMixin {
           // ),
           children: [
             TextSpan(
-              text: 'ev',
+              text: 'fik',
               style: TextStyle(color: Colors.black, fontSize: 30),
             ),
             TextSpan(
-              text: 'rnz',
+              text: 'Tur',
               style: TextStyle(color: Color(0xffe46b10), fontSize: 30),
             ),
           ]),

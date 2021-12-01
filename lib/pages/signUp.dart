@@ -160,10 +160,10 @@ class _SignUpPageState extends State<SignUpPage> with RegisterValidationMixin {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          text: 'f',
+          text: '',
           children: [
             TextSpan(
-              text: 'ik',
+              text: 'fik',
               style: TextStyle(color: Colors.black, fontSize: 30),
             ),
             TextSpan(
