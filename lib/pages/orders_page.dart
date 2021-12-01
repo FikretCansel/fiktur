@@ -6,6 +6,7 @@ import 'package:fiktur/models/login.dart';
 import 'package:fiktur/models/results/dataResult.dart';
 import 'package:fiktur/services/TourOrderService.dart';
 import 'package:fiktur/services/authService.dart';
+import 'package:fiktur/services/localDbService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -19,16 +20,29 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
-  @override
 
   TourOrderService tourOrderService = TourOrderService();
+  LocalDbService localDbService=LocalDbService();
+  int userId=0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    localDbService.getUserId().then((value) =>
+
+    userId=value!
+
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Center(
       child: FutureBuilder<DataResult<List<TourOrder>>>(
-        future: tourOrderService.getMyOrders(1),
+        future: localDbService.getUserId().then((value) =>
+            tourOrderService.getMyOrders(value!)
+        ),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return SingleChildScrollView(

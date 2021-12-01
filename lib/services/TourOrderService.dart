@@ -43,8 +43,9 @@ class TourOrderService{
     }
   }
   Future<DataResult<List<TourOrder>>> getMyOrders(int userId) async {
+
     final response = await http
-        .get(Uri.parse('https://localhost:44335/api/TourOrders/getall'));
+        .get(Uri.parse('https://localhost:44335/api/TourOrders/getByUserId?userId='+userId.toString()));
 
     print(response.statusCode);
 
@@ -62,7 +63,6 @@ class TourOrderService{
         //   Packet packet=Packet.fromJson(u);
         //   packetList.add(packet);
         // }
-        print("Girdi DATA VAR");
         Iterable list=result.data;
         myTourOrderList=list.map((myTour) => TourOrder.fromJson(myTour)).toList();
       }
